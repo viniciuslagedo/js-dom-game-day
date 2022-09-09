@@ -1,0 +1,90 @@
+body {
+  font-family: monospace;
+  background-color: #000;
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+}
+
+.dice {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 15px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.dice.rolling {
+  animation: rotate-center 1s linear forwards;
+}
+
+.dice.rolling .dot {
+  display: none;
+}
+
+.dice .dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #000;
+}
+
+.dice.one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dice.two,
+.dice.three {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dice.two .dot:nth-of-type(2),
+.dice.three .dot:nth-of-type(3) {
+  align-self: flex-end;
+}
+
+.dice.three .dot:nth-of-type(2) {
+  align-self: center;
+}
+
+.dice.four,
+.dice.five {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.dice.six {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.dice.four .dot,
+.dice.five .dot,
+.dice.six .dot {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+
+.dice.five .dot:last-child {
+  position: absolute;
+}
