@@ -20,6 +20,14 @@
         <p>Total of Items: <span id="contador">__ items</span></p>
       </div>
     </div>
-    <script></script>
+    <script>
+      const list = document.querySelector(".items");
+      const items = list.children;
+      const counter = document.querySelector("#contador");
+
+      counter.textContent = `${items.length} item${
+        items.length == 1 ? "" : "s"
+      }`;
+    </script>
   </body>
 </html>
