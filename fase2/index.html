@@ -12,6 +12,29 @@
     <div class="dice one">
       <div class="dot"></div>
     </div>
-    <script></script>
+    <script>
+      const dice = document.querySelector(".dice");
+
+      dice.addEventListener("click", () => {
+        dice.classList = "dice";
+        dice.textContent = "";
+        dice.classList.add("rolling");
+
+        const classes = ["one", "two", "three", "four", "five", "six"];
+
+        setTimeout(() => {
+          dice.classList.remove("rolling");
+          const result = parseInt(Math.random() * (6 - 1) + 1, 10);
+
+          dice.classList.add(classes[result]);
+
+          new Array(result + 1).fill("blob").forEach(() => {
+            const dotDiv = document.createElement("div");
+            dotDiv.classList.add("dot");
+            dice.appendChild(dotDiv);
+          });
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
